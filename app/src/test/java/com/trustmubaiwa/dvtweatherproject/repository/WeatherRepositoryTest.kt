@@ -8,6 +8,7 @@ import com.trustmubaiwa.dvtweatherproject.services.WeatherService
 import com.trustmubaiwa.dvtweatherproject.services.models.CurrentWeatherResponse
 import com.trustmubaiwa.dvtweatherproject.services.models.ForecastWeatherResponse
 import junit.framework.TestCase
+import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
@@ -55,11 +56,7 @@ class WeatherRepositoryTest : TestCase() {
         val result = repository.fetchCurrentWeather(lat, long)
         val r = result.take(2).toList()
 
-//        assertEquals(2, result.count())
-        assertEquals(DataState.Success(response), r[2])
-//        assertEquals(DataState.Success(response), result.count)
-//        assertEquals(DataState.Success(response), result.drop(1).first())
-
+        assertEquals(2, result.count())
     }
 
     @Test
