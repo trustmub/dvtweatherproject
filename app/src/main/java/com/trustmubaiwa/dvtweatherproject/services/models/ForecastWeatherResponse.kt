@@ -13,7 +13,7 @@ data class ForecastWeatherResponse(
     @SerializedName("message")
     val message: Int = 0,
     @SerializedName("list")
-    val list: List<ListItem>?
+    var list: List<ListItem>?
 )
 
 data class ForecastCoord(
@@ -76,7 +76,7 @@ data class ListItem(
     @SerializedName("dt")
     val dt: Int = 0,
     @SerializedName("pop")
-    val pop: Int = 0,
+    val pop: Double = 0.0,
     @SerializedName("visibility")
     val visibility: Int = 0,
     @SerializedName("dt_txt")
