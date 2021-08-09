@@ -35,15 +35,15 @@ suspend fun <T> DataStore<Preferences>.setPrefValue(key: Preferences.Key<T>, val
     }
 }
 
-fun Double.kelvinToCelsius(): Double {
-    return (this - 273.15)
+fun Double.kelvinToCelsius(): Int {
+    return (this - 273.15).toInt()
 }
 
 fun Int.toWeekDay(): String {
     return try {
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = this@toWeekDay * 1000L
-        SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()).format(calendar.time)
+        SimpleDateFormat("EEEE", Locale.getDefault()).format(calendar.time)
     } catch (e: Exception) {
         ""
     }
